@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+ long long int tc,i,j,n,x;
+    cin>>tc;
+    string st;
+    while(tc--){
+        cin>>n;
+        int a[n+2],b[n+2];
+        vector<int>zero,one;
+        map<int,int>mp;
+        for(i=0; i<n; i++){
+            cin>>a[i];
+            b[i] = a[i];
+            mp[a[i]]=i;
+        }
+        cin>>st;
+        for(i=0; i<st.size(); i++){
+            if(st[i]=='0')
+                zero.push_back(a[i]);
+            else
+                one.push_back(a[i]);
+        }
+        sort(one.begin(),one.end());
+        reverse(one.begin(),one.end());
+        sort(zero.begin(),zero.end());
+        reverse(zero.begin(),zero.end());
+        sort(a,a+n);
+        reverse(a,a+n);
+        x=0;
+        for(i=0; i<one.size(); i++){
+           b[mp[one[i]]]=a[x++];
+        }
+        for(i=0; i<zero.size(); i++){
+            b[mp[zero[i]]] = a[x++];
+        }
+        for(i=0; i<n; i++)
+            cout<<b[i]<<" ";
+        cout<<endl;
+
+    }
+return 0;
+}
