@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+   long long int tc,l,r,c,i,n,mxr,mnl,vaL,vaR,mxn,mnvlu;
+    cin>>tc;
+    while(tc--){
+        cin>>n;
+       for(i=1; i<=n; i++){
+            cin>>l>>r>>c;
+            if(i==1){
+                mnl=l,mxr=r;
+                vaL=vaR=c;
+                mxn = r-l+1;
+                mnvlu=c;
+            }
+            else{
+                if(l<mnl){
+                    mnl=l,vaL=c;
+                }
+                else if(l==mnl) vaL=min(vaL,c);
+                if(r>mxr){
+                    mxr=r,vaR=c;
+                }
+                else if(r==mxr) vaR = min(vaR,c);
+                if(r-l+1>mxn){
+                    mxn =r-l+1;
+                    mnvlu=c;
+
+                }
+                else if(r-l+1==mxn) mnvlu = min(mnvlu,c);
+            }
+          long long ans=vaL+vaR;
+            if(mxr-mnl+1==mxn) ans=min(ans,mnvlu);
+            cout<<ans<<endl;
+        }
+    }
+return 0;
+}
