@@ -1,0 +1,31 @@
+// codeforces problem A. Hard Way
+
+#include<bits/stdc++.h>
+#define ll long long
+#define ull unsigned long long
+using namespace std;
+bool is_parlal_to_x(ll x1,ll y1, ll x2, ll y2){
+    return (y1>0 and y1==y2);
+}
+void solve(){
+    ll x1,x2,x3,y1,y2,y3;
+    cin>>x1>>y1;
+    cin>>x2>>y2;
+    cin>>x3>>y3;
+   ll ans=0;
+    if(is_parlal_to_x(x1,y1,x2,y2) and y3<y1)
+        ans+=abs(x1-x2);
+    if(is_parlal_to_x(x1,y1,x3,y3)and y2<y1)
+        ans+=abs(x1-x3);
+    if(is_parlal_to_x(x2,y2,x3,y3)and y1<y2)
+        ans+=abs(x2-x3);
+    cout<<ans<<endl;
+}
+int main(){
+    ll tc;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+return 0;
+}
