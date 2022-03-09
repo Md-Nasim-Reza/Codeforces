@@ -1,0 +1,32 @@
+//1650 codeforces
+
+#include<bits/stdc++.h>
+#define ll long long
+#define ull unsigned long long
+using namespace std;
+void solve(){
+    ll l,r,a,x;
+    cin>>l>>r>>a;
+    if(a==1)
+        cout<<r<<endl;
+    else{
+        if(r-(r%a)-1>=l){
+           x = r-(r%a)-1;
+        }
+        else{
+            x = r;
+        }
+       ll ans = (x/a)+(x%a);
+        ll ans2 = (r/a)+(r%a);
+        ans = max(ans,ans2);
+        cout<<ans<<endl;
+    }
+}
+int main(){
+    ll tc;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+return 0;
+}
