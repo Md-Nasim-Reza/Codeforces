@@ -1,0 +1,51 @@
+// A Direction Change codeforces porblem
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+using namespace std;
+
+void solve(){
+    ll n,i,j,z,m,a,b,c,x,y,k;
+    cin>>n>>m;
+    if(n==1 and m==1){
+        cout<<0<<nl;
+        return;
+    }
+    x = min(n,m),y = min(n,m);
+    a=x;
+    x = (x-1)*2;
+    if(a==1 and max(n,m)-a>1){
+        cout<<-1<<nl;
+        return;
+    }
+    if((max(n,m)-a)%2==1){
+        y = (max(n,m)-a)*2;
+        cout<<x+y-1<<nl;
+    }
+    else cout<<(max(n,m)-a)*2+x<<nl;
+
+}
+int main(){
+    ll i,tc,n,ans;
+    cin>>tc;
+   while(tc--){
+       solve();
+   }
+
+return 0;
+}
