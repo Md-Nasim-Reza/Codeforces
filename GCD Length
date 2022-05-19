@@ -1,0 +1,66 @@
+// GCD Length B
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+using namespace std;
+ll ar[]={3,11,101,1009,10007,100003,1000003,10000019,100030001};
+void solve(){
+    ll n,i,j,z,m,a,b,c,x,y,k,u,v,p,ans=0;
+    cin>>a>>b>>c;
+    x = ar[c-1];
+    ll ans1;
+    y=0;
+    while(true){
+        p=x;
+        while(p>0){
+            p/=10;
+            y++;
+        }
+        if(a==y){
+            ans=x;
+            break;
+        }
+        x=x*2;
+        y=0;
+    }
+    x=ar[c-1];
+    z=0;
+    while(true){
+        p=x;
+        while(p>0){
+            p/=10;
+            z++;
+        }
+        if(b==z){
+            ans1=x;
+            break;
+        }
+        x=x*3;
+        z=0;
+    }
+    cout<<ans<<" "<<ans1<<nl;
+
+}
+int main(){
+    ll i,tc,n,ans;
+    cin>>tc;
+    while(tc--){
+       solve();
+    }
+return 0;
+}
