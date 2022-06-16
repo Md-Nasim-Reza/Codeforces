@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define mx  1e69
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+using namespace std;
+bool palindrom(string st){
+    int i=0,j=4;
+    for(i=0; i<=1; i++){
+        if(st[i]!=st[j]){
+            return false;
+        }
+        j--;
+    }
+    return true;
+}
+void solve(){
+    ll n,i,j,z,m,a,b,c,x,y,k,u,v,p,h,ans=0,sum=0,cnt=0;
+    string st;
+    cin>>st>>x;
+    h = x/60,m = x%60;
+    map<string,bool>visited;
+
+    while(!visited[st]){
+        ans+=palindrom(st);
+        visited[st]=true;
+        ll hh = (st[0]-'0')*10+(st[1]-'0');
+        ll mm = (st[3]-'0')*10+(st[4]-'0');
+        mm+=m;
+        if(mm>59){
+            hh++;
+            mm%=60;
+        }
+        hh+=h;
+        hh%=24;
+        st[0]=(hh/10)+'0',st[1]=(hh%10)+'0';
+        st[3] = (mm/10)+'0',st[4]=(mm%10)+'0';
+    }
+    cout<<ans<<nl;
+}
+int main(){
+    ll i,tc,n,ans;
+    cin>>tc;
+    while(tc--){
+       solve();
+    }
+return 0;
+}
