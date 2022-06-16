@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define mx  1e69
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+using namespace std;
+void solve(){
+    ll n,i,j,z,m,a,b,c,x,y,k,u,v,p,ans=0,sum=0,cnt=0;
+    cin>>n>>m;
+    ll ar[n+1];
+    in_range(i,0,n){
+        cin>>ar[i];
+        sum+=ar[i];
+    }
+    if(sum<m){
+        cout<<-1<<nl;
+        return;
+    }
+    if(sum==m){
+        cout<<0<<nl;
+        return;
+    }
+    ll last=n;
+    ll next_one[n+1];
+    for(i=n-1; i>=0; i--){
+        next_one[i]=last;
+        if(ar[i]==1)
+            last=i;
+    }
+    ans=mx,sum=0;
+    queue<ll>qq;
+    for(i=0; i<n; i++){
+       qq.push(ar[i]);
+       cnt+=ar[i];
+       while(!qq.empty() and cnt>m){
+            cnt-=(qq.front());
+            qq.pop();
+            sum++;
+       }
+       if(cnt==m){
+           ans = min(ans,sum+(n-(next_one[i])));
+       }
+    }
+    cout<<ans<<nl;
+}
+int main(){
+    ll i,tc,n,ans;
+    cin>>tc;
+    while(tc--){
+       solve();
+    }
+return 0;
+}
