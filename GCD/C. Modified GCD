@@ -1,0 +1,59 @@
+/// codefordes 75 C
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define mx  1e69
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+using namespace std;
+
+void solve(){
+    int i,j,n,y,z,c,m,x,a,b;
+    cin>>n>>m;
+    vi ans;
+    int gcd = __gcd(n,m);
+    for(i=1; i*i<=gcd; i++){
+        if(gcd%i==0){
+            if(i==gcd/i) ans.pb(i);
+            else{
+                ans.pb(i);
+                ans.pb(gcd/i);
+            }
+        }
+    }
+    //y = sqrt(gcd);
+    cin>>x;
+    while(x--){
+
+        cin>>a>>b;
+
+        int res=-1;
+        for(int it:ans){
+            if(it>=a and it<=b){
+                res=max(res,it);
+            }
+        }
+        cout<<res<<nl;
+    }
+}
+int main(){
+    ll i,tc,n,ans;
+    //cin>>tc;
+   // while(tc--){
+       solve();
+   // }
+return 0;
+}
