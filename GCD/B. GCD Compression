@@ -1,0 +1,75 @@
+// codeforces 1370
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define mx  1e69
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+using namespace std;
+
+void solve(){
+    int i,j,n,y,z,c,m;
+    vector<pair<int,int> >ans;
+    vi even,odd;
+    cin>>n;
+    for(i=1; i<=n*2; i++){
+        cin>>m;
+        if(m&1){
+            odd.pb(i);
+        }
+        else even.pb(i);
+    }
+    int x=n-1,cnt=0;
+    int len=odd.size();
+    if(len>=2){
+        for(i=1; i<=len; i++){
+            if(i+1<=len){
+                ans.pb({odd[i-1],odd[i]});
+                i++;
+                cnt++;
+                //cout<<"cnt = "<<cnt<<nl;
+                if(cnt==n-1)
+                    break;
+            }
+        }
+    }
+  if(cnt !=n-1){
+        //cout<<"cnt2 = "<<cnt<<nl;
+        int len1=even.size();
+        for(i=1; i<=len1; i++){
+            if(i+1<=len1){
+                ans.pb({even[i-1],even[i]});
+                cnt++;
+                i++;
+
+                if(cnt==x)
+                    break;
+            }
+        }
+    }
+    for(i=0; i<ans.size(); i++){
+        cout<<ans[i].first<<" "<<ans[i].second<<nl;
+    }
+
+}
+int main(){
+    ll i,tc,n,ans;
+    cin>>tc;
+    while(tc--){
+       solve();
+    }
+return 0;
+}
