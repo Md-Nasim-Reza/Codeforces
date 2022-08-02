@@ -1,0 +1,61 @@
+//// A. Everyone Loves to Sleep codeforces problem 1714
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+#define  N 1000
+using namespace std;
+
+void solve(){
+    ll x,m,n,h,i,j,ans;
+
+    cin>>n>>h>>m;
+    ans = LLONG_MAX;
+    while(n--){
+        ll hh,mm,cnt=0;
+        cin>>hh>>mm;
+        ll _m=m;
+        ll _h=h;
+        while(true){
+            if(_h==hh and _m==mm){
+                break;
+            }
+            _m++;
+            cnt++;
+            if(_m == 60){
+                _h++;
+                _m=0;
+                if(_h==24){
+                    _h=0;
+                }
+            }
+        }
+        ans = min(ans,cnt);
+    }
+    cout<<ans/60<<" "<<ans%60<<nl;
+
+}
+int main(){
+    ll i,tc,n,Pow,m,ans;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+return 0;
+}
