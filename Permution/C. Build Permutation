@@ -1,0 +1,79 @@
+//// 1713 C. Build Permutation codeforces
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+#define  N 1000
+using namespace std;
+int cas=0;
+ 
+void solve(){
+    ll n,i,j;
+    cin>>n;
+    map<ll,bool>visit;
+    ll ar[n+1];
+    for(i=0; i<=n; i++){
+        ar[i]=-1;
+    }
+    ar[0]=0;
+    if(n==1){
+        cout<<0<<nl;
+        return;
+    }
+    else if(n==2){
+        cout<<1<<" "<<0<<nl;
+        return;
+    }
+    else if(n==3){
+        cout<<1<<" "<<0<<" "<<2<<nl;
+        return;
+    }
+    else if(n>=4){
+        n--;
+        ll root  = ceil(sqrt(n));
+        //ll sq = root*2;
+        for(i=n; i>=0; i--){
+            if(ar[i]==-1){
+                ll sq = root*root;
+                ll x = sq-i;
+                while(i>=x){
+                    ar[sq-i]=i;
+                    ar[i] = sq-i;
+                    i--;
+                }
+                i++;
+                root--;
+            }
+        }
+ 
+    }
+    in_range1(i,0,n){
+        cout<<ar[i]<<" ";
+    }
+    cout<<nl;
+}
+ 
+int main(){
+    ll i,tc,n,Pow,m,ans;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+return 0;
+}
