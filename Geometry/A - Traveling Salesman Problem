@@ -1,0 +1,63 @@
+/// 	A - Traveling Salesman Problem	 codeforces
+
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+#define  N 1000
+using namespace std;
+int cas=0;
+ 
+void solve(){
+    ll n,x,y,a,b,c,d,i,j;
+    a = b = 0;
+    c = d= 0;
+    cin>>n;
+    while(n--){
+        cin>>x>>y;
+        if(x==0){
+            if(y<=0){
+                a = min(a,y);
+            }
+           else if(y>=0){
+                c = max(c,y);
+            }
+        }
+        else if(y==0){
+            if(x<=0){
+                b = min(b,x);
+            }
+           else if(x>=0){
+                d = max(d,x);
+            }
+        }
+    }
+    ll ans = abs(a*2)+abs(b*2)+abs(c*2)+abs(d*2);
+    cout<<abs(ans)<<nl;
+ 
+}
+ 
+int main(){
+    ll i,tc,n,Pow,m,ans;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+return 0;
+}
