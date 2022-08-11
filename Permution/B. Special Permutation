@@ -1,0 +1,62 @@
+/// codeforces B. Special Permutation
+
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+#define  N 1000
+using namespace std;
+int cas=0;
+void solve(){
+    ll a,b,n,i;
+    cin>>n>>a>>b;
+    ll mid = n/2;
+    if(a>mid+1 or b<mid){
+        cout<<-1<<nl;
+    }
+    else if(a==mid+1 and b!=mid){
+        cout<<-1<<nl;
+    }
+    else if(b==mid and a!=mid+1){
+        cout<<-1<<nl;
+    }
+    else{
+        cout<<a<<" ";
+        for(i=mid+1; i<=n; i++){
+            if(i==a or i==b) continue;
+            else cout<<i<<" ";
+        }
+        cout<<b<<" ";
+        for(i=1; i<=mid; i++){
+            if(i==a or i==b) continue;
+            else cout<<i<<" ";
+        }
+        cout<<nl;
+    }
+
+}
+
+int main(){
+    ll i,tc,n,Pow,m,ans;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+return 0;
+}
