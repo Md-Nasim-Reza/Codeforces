@@ -1,0 +1,78 @@
+//// A. Wonderful Permutation 1712
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+#define  N 1000
+using namespace std;
+
+void solve(){
+    ll n,m,i,j,in;
+    cin>>n>>m;
+    vl ar,br;
+    ll cnt=0;
+    for(i=0; i<n; i++){
+        cnt++;
+        if(cnt<=m){
+            cin>>in;
+            ar.pb(in);
+        }
+
+        else{
+            cin>>in;
+            br.pb(in);
+        }
+    }
+    if(n==m){
+        cout<<0<<nl;
+        return;
+    }
+
+    sort(ar.begin(),ar.end(),greater<ll>());
+    sort(br.begin(),br.end());
+    ll ans=0;
+    cnt=0;
+    j=0;
+    for(i=0; i<ar.size(); i++){
+        cnt++;
+        if(j==br.size())
+            break;
+        if(br[j]<ar[i]){
+            ans++;
+        }
+        else{
+            break;
+        }
+        if(cnt==m){
+            break;
+        }
+        j++;
+    }
+    cout<<ans<<nl;
+
+}
+
+int main(){
+    ll i,tc,n,Pow,m,ans;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cin>>tc;
+   while(tc--){
+        solve();
+   }
+return 0;
+}
