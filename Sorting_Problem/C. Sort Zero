@@ -1,0 +1,75 @@
+/// codeforces  C. Sort Zero 1712
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define v2 vector<vector<int>>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+#define     in_range(i,x,y)    for(int i=x;i<y;i++)
+#define     in_range1(i,x,y)    for(int i=x;i<=y;i++)
+#define st_input for(int i=x; i<y; i++) {cin>>st[i];}
+#define  N 1000
+using namespace std;
+
+void solve(){
+    ll n,m,i,j,in,x;
+    cin>>n;
+    vl ar;
+    for(i=0; i<n; i++){
+        cin>>in;
+        ar.pb(in);
+    }
+    map<ll,bool>visit,no_visit;
+    bool flag=false;
+    for(i=n-1; i>=1; i--){
+
+        if(ar[i-1]>ar[i]){
+            x = i;
+            flag=true;
+            break;
+        }
+    }
+    ll cnt=0;
+    if(flag==true){
+        for(i=0; i<x; i++){
+            if(visit[ar[i]]==false){
+                cnt++;
+                visit[ar[i]]=true;
+            }
+        }
+    }
+    ll cnt2=0;
+    if(flag==true){
+        for(i=x; i<n; i++){
+            if(visit[ar[i]]==false and no_visit[ar[i]]==false){
+                no_visit[ar[i]]=true;
+                cnt2++;
+            }
+            else if(visit[ar[i]]==true){
+                cnt+=cnt2;
+                cnt2=0;
+            }
+        }
+    }
+    cout<<cnt<<nl;
+}
+
+int main(){
+    ll i,tc,n,Pow,m,ans;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cin>>tc;
+   while(tc--){
+        solve();
+   }
+return 0;
+}
