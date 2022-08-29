@@ -1,0 +1,86 @@
+/// Codeforces problem B. Maximum Cost Deletion
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+using namespace std;
+
+void solve(){
+    ll n,m,u,v,i,j,k,x;
+    cin>>n>>m>>u;
+    string st;
+    cin>>st;
+   ll ans,one_sum=0,zero_sum=0,cnt=0;
+    if(u<0){
+        vl one,zero;
+        for(i=0; i<n; i++){
+           char ch = st[i];
+           i++;
+           cnt++;
+            while(i<n){
+                if(st[i]==ch){
+                    cnt++;
+                }
+                else{
+                    break;
+                }
+                i++;
+            }
+            i--;
+            if(ch=='0'){
+                zero.pb(cnt);
+                zero_sum+=cnt;
+                cnt=0;
+            }
+            else if(ch=='1'){
+                one.pb(cnt);
+                one_sum+=cnt;
+                cnt=0;
+            }
+
+        }
+        ans = 0;
+        ll sum=0;
+        if(one.size()<=zero.size()){
+            for(i=0; i<one.size(); i++){
+                ans+=(one[i]*m)+u;
+            }
+            ans+=(zero_sum*m)+u;
+            cout<<ans<<nl;
+        }
+        else{
+            for(i=0; i<zero.size(); i++){
+                ans+=(zero[i]*m)+u;
+            }
+            ans+=(one_sum*m)+u;
+            cout<<ans<<nl;
+        }
+
+    }
+    else{
+        ans = n*m;
+        ans+= (n*u);
+        cout<<ans<<nl;
+    }
+}
+
+int main(){
+    ll i,tc,n,Pow,m,ans;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+return 0;
+}
