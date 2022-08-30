@@ -1,0 +1,40 @@
+//// Codeforces problem C. Double-ended Strings
+/// Longest common subtring in two string (LCS)
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+void solve(){
+    string st1,st2,st3;
+    int i,j,n,m,x,mn = INT_MAX;
+    cin>>st1>>st2;
+    int arr[200][200]={0};
+    int maxlen=0,ending=st1.size();
+    for(i=1; i<=st1.size(); i++){
+        for(j=1; j<=st2.size(); j++){
+            if(st1[i-1]==st2[j-1]){
+                arr[i][j]=arr[i-1][j-1]+1;
+            }
+            if(arr[i][j]>maxlen){
+                maxlen = arr[i][j];
+                ending = i;
+            }
+        }
+
+    }
+    m = st1.size(),n = st2.size();
+
+    st3 = st1.substr(ending-maxlen,maxlen);
+   int len = st3.size();
+    int ans = (m-len)+(n-len);
+    cout<<ans<<endl;
+}
+
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+}
