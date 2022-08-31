@@ -1,0 +1,46 @@
+/// Codeforces problem 1485A - Add and Divide
+
+
+#include<bits/stdc++.h>
+#include<math.h>
+#include<string>
+#define ll long long
+#define vl vector<ll>
+#define vi vector<int>
+#define pb push_back
+#define nl endl
+#define yes "YES"
+#define no "NO"
+#define mod 1000000007
+#define mod1 998244353
+#define ull unsigned long long
+using namespace std;
+
+void solve(){
+    ll n,m,u,v,i,j,k,x,y;
+    cin>>n>>m;
+    ll cnt=0,ans=LLONG_MAX;
+    for(i=0; i*i<=n; i++){
+        if(m==1 and i==0)
+            continue;
+        cnt=i;
+        ll x = n;
+        while(x){
+            x/=(m+i);
+            cnt++;
+        }
+        ans = min(ans,cnt);
+    }
+    cout<<ans<<nl;
+}
+
+int main(){
+    ll i,tc,n,Pow,m,ans;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+return 0;
+}
