@@ -1,0 +1,28 @@
+///B. XOR Specia-LIS-t
+
+void solve(){
+    ll n,m,u,v,i,j,k,w,ans=0;
+    cin>>n;
+    ll ar[n+3];
+    for(i=1; i<=n; i++){
+        cin>>ar[i];
+        
+    }
+    if(n%2==0){
+        cout<<yes<<nl;
+    }
+    else{
+        bool possibal = false;
+        for(i=1; i<n; i++){
+           
+            if(ar[i+1]<=ar[i]){
+                possibal=true;
+                break;
+            }
+        }
+        if(possibal) cout<<yes<<nl;
+        else
+            cout<<no<<nl;
+
+    }
+}
