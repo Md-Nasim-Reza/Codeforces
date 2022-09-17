@@ -1,0 +1,19 @@
+//D1. All are Same
+void solve(){
+    ll n,m,u,v,i,j,k,x,ans=0;
+    cin>>n;
+    vl ar;
+    for(i=1; i<=n; i++){
+        cin>>x;
+        ar.pb(x);
+    }
+    sort(ar.begin(),ar.end());
+    if(ar[0]==ar[n-1]){
+        cout<<-1<<nl;
+        return;
+    }
+    for(i=1; i<n; i++){
+        ans = __gcd(ans,ar[i]-ar[0]);
+    }
+    cout<<ans<<nl;
+}
